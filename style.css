@@ -1,0 +1,112 @@
+
+
+body {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.65), 
+      rgba(255, 255, 255, 0.65)
+    ), 
+    url('https://i.pinimg.com/736x/6c/96/19/6c961995a6f310649f085e0a4df379e9.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #6b1414 0%, #a8241f 55%, #e2492f 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+ 
+.bg-gradient-primary-to-secondary {
+    background: linear-gradient(90deg, #6b1414 0%, #a8241f 55%, #e2492f 100%);
+}
+ 
+
+.hero-photo-wrap {
+    position: relative;
+}
+ 
+.hero-blob {
+    position: relative;
+    z-index: 2;
+    aspect-ratio: 4 / 5;
+    border-radius: 2.5rem;
+    overflow: hidden;
+    padding: 12px;
+    background: linear-gradient(160deg, #6b1414 0%, #a8241f 55%, #e2492f 100%);
+    box-shadow: 0 24px 48px -24px rgba(168, 36, 31, 0.45);
+}
+ 
+.hero-blob img,
+.hero-blob .profile-img,
+.hero-blob .placeholder-person {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2rem;
+}
+ 
+.dot-pattern {
+    position: absolute;
+    top: 8%;
+    width: 70px;
+    height: 84%;
+    background-image: radial-gradient(circle, currentColor 3px, transparent 3.5px);
+    background-size: 20px 20px;
+}
+ 
+.dot-pattern-left {
+    left: -34px;
+    z-index: 1;
+    color: #a8241f;
+}
+ 
+.dot-pattern-right {
+    right: -34px;
+    z-index: 3;
+    color: #ffffff;
+}
+ 
+/* ===== Login page ===== */
+.login-page {
+    background: url("https://wallpapers-clan.com/wp-content/uploads/2025/03/pastel-sky-with-fluffy-clouds-desktop-wallpaper-preview.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+ 
+/* From https://css.glass */
+.login-box {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.44);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.3px);
+    -webkit-backdrop-filter: blur(8.3px);
+}
+ 
+ 
+.register-page {
+    background: url("https://preview.redd.it/flowing-mist-over-the-lake-v0-nr4us7nmgknh1.jpeg?width=1080&crop=smart&auto=webp&s=3ab30902c882a5b95fd664185b45be6284cd214c");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+ 
+/* From https://css.glass */
+.register-box {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.44);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.3px);
+    -webkit-backdrop-filter: blur(8.3px);
+}
+
+.nav-link {
+    font-size: large;
+    
+}
+
+form {
+    border-radius: 50%;
+}
