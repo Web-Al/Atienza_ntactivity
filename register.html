@@ -3,96 +3,178 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Register</title>
+    <title>Create account — Crimson Cloud</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
   </head>
 
-  <body class="register-page">
+  <body class="auth-page register-page">
 
-    <div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="container-fluid min-vh-100 d-flex flex-column justify-content-center align-items-center py-5">
 
-      <div class="register-box w-100" style="max-width: 380px;">
-        <h1 class="text-center">Register</h1>
+      <a href="home.html" class="auth-brand">
+        <img src="nav-logo.jpg" alt="Site logo">
+        <span>Crimson Cloud</span>
+      </a>
 
-        <form>
+      <div class="auth-card w-100" style="max-width: 400px;">
+        <h1>Create your account</h1>
+        <p class="auth-subtitle">It only takes a minute to get started.</p>
+
+        <form id="registerForm">
           <!-- Username -->
-          <div class="mb-2">
+          <div class="mb-2 auth-input-wrap">
             <label for="username" class="form-label visually-hidden">Username</label>
             <input
               type="text"
-              class="form-control"
+              class="form-control auth-pill-input"
               id="username"
               name="username"
               required
+              minlength="3"
+              maxlength="20"
               placeholder="Username"
             >
+            <i class="bi bi-person-fill auth-input-icon"></i>
           </div>
 
           <!-- Email -->
-          <div class="mb-2">
+          <div class="mb-2 auth-input-wrap">
             <label for="email" class="form-label visually-hidden">Email Address</label>
             <input
               type="email"
-              class="form-control"
+              class="form-control auth-pill-input"
               id="email"
               name="email"
               required
+              minlength="5"
+              maxlength="100"
               placeholder="Email Address"
             >
+            <i class="bi bi-envelope-fill auth-input-icon"></i>
           </div>
 
           <!-- Phone -->
-          <div class="mb-2">
+          <div class="mb-2 auth-input-wrap">
             <label for="phone" class="form-label visually-hidden">Phone Number</label>
             <input
               type="tel"
-              class="form-control"
+              class="form-control auth-pill-input"
               id="phone"
               name="phone"
               required
+              minlength="7"
+              maxlength="15"
               placeholder="Phone Number"
             >
+            <i class="bi bi-telephone-fill auth-input-icon"></i>
           </div>
 
           <!-- Password -->
-          <div class="mb-2">
+          <div class="mb-2 auth-input-wrap">
             <label for="password" class="form-label visually-hidden">Password</label>
             <input
               type="password"
-              class="form-control"
+              class="form-control auth-pill-input"
               id="password"
               name="password"
               required
+              minlength="6"
+              maxlength="30"
               placeholder="Password"
             >
+            <i class="bi bi-lock-fill auth-input-icon"></i>
           </div>
 
-          <div class="mb-3">
+          <div class="mb-3 auth-input-wrap">
             <label for="confirm_password" class="form-label visually-hidden">Confirm Password</label>
             <input
               type="password"
-              class="form-control"
+              class="form-control auth-pill-input"
               id="confirm_password"
               name="confirm_password"
               required
+              minlength="6"
+              maxlength="30"
               placeholder="Confirm Password"
             >
+            <i class="bi bi-lock-fill auth-input-icon"></i>
           </div>
+
+          <div id="registerFeedback" class="mb-3" style="display:none;"></div>
 
           <!-- Register -->
           <div class="d-grid">
-            <button type="submit" class="btn btn-light">Register</button>
+            <button type="submit" class="btn btn-auth-pill">Create account</button>
           </div>
         </form>
 
-        <p class="text-center mt-3 mb-0">
+        <p class="text-center auth-foot mt-3 mb-0">
           Already have an account?
-          <a href="login.html">Login</a>
+          <a href="index.html">Log in</a>
         </p>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('#registerForm').validate({
+          rules: {
+            username: { required: true, minlength: 3, maxlength: 20 },
+            email: { required: true, email: true, minlength: 5, maxlength: 100 },
+            phone: { required: true, digits: true, minlength: 7, maxlength: 15 },
+            password: { required: true, minlength: 6, maxlength: 30 },
+            confirm_password: { required: true, minlength: 6, maxlength: 30, equalTo: '#password' }
+          },
+          messages: {
+            username: {
+              required: 'Please choose a username',
+              minlength: 'Username must be at least 3 characters',
+              maxlength: 'Username must be no more than 20 characters'
+            },
+            email: {
+              required: 'Please enter your email',
+              email: 'Enter a valid email address',
+              maxlength: 'Email must be no more than 100 characters'
+            },
+            phone: {
+              required: 'Please enter your phone number',
+              digits: 'Digits only, no spaces or dashes',
+              minlength: 'Phone number must be at least 7 digits',
+              maxlength: 'Phone number must be no more than 15 digits'
+            },
+            password: {
+              required: 'Please enter a password',
+              minlength: 'Password must be at least 6 characters',
+              maxlength: 'Password must be no more than 30 characters'
+            },
+            confirm_password: {
+              required: 'Please confirm your password',
+              minlength: 'Password must be at least 6 characters',
+              maxlength: 'Password must be no more than 30 characters',
+              equalTo: 'Passwords do not match'
+            }
+          },
+          errorPlacement: function (error, element) {
+            error.insertAfter(element);
+          },
+          submitHandler: function (form) {
+            $('#registerFeedback')
+              .removeClass('alert-danger')
+              .addClass('alert alert-success')
+              .text('Registration successful! Redirecting to login...')
+              .show();
+
+            setTimeout(function () {
+              window.location.href = 'index.html';
+            }, 800);
+          }
+        });
+      });
+    </script>
   </body>
 </html>
